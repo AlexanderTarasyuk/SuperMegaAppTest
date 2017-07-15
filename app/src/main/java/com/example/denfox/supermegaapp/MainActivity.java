@@ -2,12 +2,7 @@ package com.example.denfox.supermegaapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -19,7 +14,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnClear;
     private Button btnSend;
     private CheckBox checkBox;
-    private String textFromEditText;
 
 
     @Override
@@ -56,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnSend:
                 if (editText.getText().toString().equals("")
                         | !editText.getText().toString().contains("@")) {
-                    return;
+                    break;
                 }
                 Intent intent = new Intent(this, SecondActivity.class);
                 intent.putExtra("text", editText.getText().toString());
@@ -72,6 +66,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (data == null) {
             return;
         }
-        editText.setText(data.getStringExtra("text2"));
+
+
+        editText.setHint(data.getStringExtra("text2"));
     }
 }
