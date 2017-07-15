@@ -23,19 +23,22 @@
         android:id="@+id/chBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="12dp"
         android:checked="true"
         android:text="@string/checkBoxName"
+
         android:textSize="24dp"
-        android:layout_margin="12dp"/>
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/btnClear"
-        android:layout_width="wrap_content"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
+        android:layout_margin="12dp"
         android:shadowColor="@color/colorAccent"
         android:text="@string/buttonClear"
-        android:textSize="24dp"
-        android:layout_margin="12dp"/>
+        android:textSize="24dp" />
 
     <Button
         android:id="@+id/btnSend"

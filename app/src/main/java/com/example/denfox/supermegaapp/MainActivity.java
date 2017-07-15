@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data == null) {
             return;
-        } else if (data.equals("")) {
-            editText.setHint(nameFromEditText);
         }
+        editText.setText(data.getStringExtra("text2"));
     }
 }
+
