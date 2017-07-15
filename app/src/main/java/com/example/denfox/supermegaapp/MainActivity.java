@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnSend = (Button) findViewById(R.id.btnSend);
         checkBox = (CheckBox) findViewById(R.id.chBox);
 
+        checkBox.setChecked(true);
+
         btnSend.setOnClickListener(this);
         btnClear.setOnClickListener(this);
         editText.setOnClickListener(this);
@@ -70,6 +72,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (data == null) {
             return;
         }
-        editText.setText(data.getStringExtra("name"));
+        editText.setText(data.getStringExtra("text2"));
     }
 }
