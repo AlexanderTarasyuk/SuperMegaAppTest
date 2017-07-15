@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnSend;
     private CheckBox checkBox;
 
+    String nameFromEditText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editText.setOnClickListener(this);
         checkBox.setOnClickListener(this);
 
+        nameFromEditText = editText.getText().toString();
+
 
     }
 
@@ -49,12 +53,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnSend:
                 if (editText.getText().toString().equals("")
-                        | !editText.getText().toString().contains("@")) {
+                        | !editText.getText().toString().contains("@")
+                        | !checkBox.isChecked()) {
                     break;
                 }
                 Intent intent = new Intent(this, SecondActivity.class);
                 intent.putExtra("text", editText.getText().toString());
                 startActivityForResult(intent, 1);
+                break;
+            default:
                 break;
 
         }
@@ -65,9 +72,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data == null) {
             return;
+        } else if (data.equals("")) {
+            editText.setHint(nameFromEditText);
         }
-
-
-        editText.setHint(data.getStringExtra("text2"));
     }
 }
