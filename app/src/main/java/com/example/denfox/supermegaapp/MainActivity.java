@@ -33,35 +33,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnClear = (Button) findViewById(R.id.btnClear);
         btnSend = (Button) findViewById(R.id.btnSend);
         checkBox = (CheckBox) findViewById(R.id.chBox);
-//        textFromEditText=editText.getText().toString();
+
+        btnSend.setOnClickListener(this);
+        btnClear.setOnClickListener(this);
+        editText.setOnClickListener(this);
+        checkBox.setOnClickListener(this);
+
+
     }
 
-    //
+
     @Override
     public void onClick(View view) {
 
-        if (view == null) {
-            return;
-        } else {
 
-            switch (view.getId()) {
-                case R.id.btnClear:
-                    editText.setText("");
-                    break;
-                case R.id.btnSend:
-                    if (editText.getText().toString().equals("")
-                            | !editText.getText().toString().contains("@")
-                            | !checkBox.isChecked()) {
-                        break;
-                    } else {
-                        Intent intent = new Intent(this, SecondActivity.class);
-                        intent.putExtra("text", editText.getText().toString());
-                        startActivityForResult(intent, 1);
-                        break;
-                    }
-                default:
-                    break;
-            }
+        switch (view.getId()) {
+            case R.id.btnClear:
+                editText.setText("");
+                break;
+            case R.id.btnSend:
+                if (editText.getText().toString().equals("")
+                        | !editText.getText().toString().contains("@")) {
+                    return;
+                }
+                Intent intent = new Intent(this, SecondActivity.class);
+                intent.putExtra("text", editText.getText().toString());
+                startActivityForResult(intent, 1);
+                break;
+
         }
     }
 
