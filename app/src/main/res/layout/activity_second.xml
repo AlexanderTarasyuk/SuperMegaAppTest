@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.denfox.supermegaapp.SecondActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/textViewSeconActivity"
+        android:textSize="24dp"
+        android:gravity="center"
+        android:shadowColor="@color/colorPrimary"
+        android:layout_margin="12dp"/>
+
+    <Button
+        android:id="@+id/btnApprove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonApprove"
+        android:textSize="24dp"
+        android:shadowColor="@color/colorAccent"
+        android:layout_margin="12dp"
+        />
+
+    <Button
+        android:id="@+id/btnReject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonReject"
+        android:textSize="24dp"
+        android:shadowColor="@color/colorPrimaryDark"
+        android:layout_margin="12dp"/>
+
+</LinearLayout>
