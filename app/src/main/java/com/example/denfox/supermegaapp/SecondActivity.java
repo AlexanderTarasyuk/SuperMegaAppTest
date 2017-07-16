@@ -26,14 +26,13 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         buttonApprove = (Button) findViewById(R.id.btnApprove);
         buttonReject = (Button) findViewById(R.id.btnReject);
 
+        buttonApprove.setOnClickListener(this);
+        buttonReject.setOnClickListener(this);
+
         if (!TextUtils.isEmpty(getIntent().getStringExtra("text"))) {
 
             nameToPrint = getIntent().getStringExtra("text");
             textView.setText(nameToPrint);
-
-            buttonApprove.setOnClickListener(this);
-            buttonReject.setOnClickListener(this);
-
         }
 
     }
@@ -44,11 +43,13 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
         switch (view.getId()) {
             case R.id.btnApprove:
-                Intent intent = new Intent(this, MainActivity.class);
-                intent.putExtra("text", "");
+                Intent intent = new Intent();
+                intent.putExtra("text2", "");
+                setResult(RESULT_OK, intent);
                 Toast.makeText(this, "Действие подтверждено", Toast.LENGTH_SHORT).show();
-                startActivity(intent);
+                finish();
                 break;
+
 
             case R.id.btnReject:
                 Intent intent2 = new Intent();
